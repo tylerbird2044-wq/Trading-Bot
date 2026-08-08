@@ -32,5 +32,11 @@ jobs:
         GMAIL_SENDER: ${{ secrets.GMAIL_SENDER }}
         GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
       run: python alpaca_bot.py
+      
+    - name: Generate Dashboard
+      env:
+        ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+        ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+      run: python dashboard.py
     
 
