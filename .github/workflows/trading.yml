@@ -33,9 +33,4 @@ jobs:
         GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
       run: python alpaca_bot.py
     
-    - name: Upload logs
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: trading-logs
-        path: trading_log.txt
+
