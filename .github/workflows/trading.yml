@@ -3,7 +3,7 @@ name: Automated Trading Bot
 on:
   schedule:
     # Run at 3:55 PM Eastern Time (8:55 PM UTC) every weekday
-    - cron: '55 20 * * 1-5'
+    - cron: '0 14 * * 1-5'
   
   # Also allow manual trigger (for testing)
   workflow_dispatch:
