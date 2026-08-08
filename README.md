@@ -1,0 +1,2 @@
+# Trading-Bot
+Automated Trading
