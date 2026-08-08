@@ -36,7 +36,6 @@ GMAIL_SENDER = os.environ.get('GMAIL_SENDER')
 GMAIL_PASSWORD = os.environ.get('GMAIL_PASSWORD')
 
 TICKERS = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'NVDA', 'META', 'TSLA']
-BASE_URL = "https://paper-api.alpaca.markets"  # Paper trading
 RISK_PER_TRADE = 0.01  # 1% risk per position
 
 # ============================================================================
@@ -46,9 +45,8 @@ RISK_PER_TRADE = 0.01  # 1% risk per position
 class AlpacaClient:
     """Wrapper for Alpaca trading API"""
     
-    def __init__(self, api_key, secret_key, base_url):
-        self.client = TradingClient(api_key, secret_key, base_url=base_url)
-        self.base_url = base_url
+    def __init__(self, api_key, secret_key, paper=True):
+        self.client = TradingClient(api_key, secret_key, paper=paper)
     
     def get_account(self):
         """Get account info (equity, buying power, etc.)"""
@@ -433,10 +431,10 @@ def main():
     print()
     
     try:
-        # Initialize clients
-        alpaca = AlpacaClient(ALPACA_API_KEY, ALPACA_SECRET_KEY, BASE_URL)
-        scanner = SignalScanner()
-        trader = AutoTrader(alpaca)
+       # Initialize clients
+alpaca = AlpacaClient(ALPACA_API_KEY, ALPACA_SECRET_KEY, paper=True)
+scanner = SignalScanner()
+trader = AutoTrader(alpaca)
         
         # Check API connection
         account = alpaca.get_account()
