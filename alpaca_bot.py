@@ -431,10 +431,10 @@ def main():
     print()
     
     try:
-       # Initialize clients
-alpaca = AlpacaClient(ALPACA_API_KEY, ALPACA_SECRET_KEY, paper=True)
-scanner = SignalScanner()
-trader = AutoTrader(alpaca)
+        # Initialize clients
+        alpaca = AlpacaClient(ALPACA_API_KEY, ALPACA_SECRET_KEY, paper=True)
+        scanner = SignalScanner()
+        trader = AutoTrader(alpaca)
         
         # Check API connection
         account = alpaca.get_account()
